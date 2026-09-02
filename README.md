@@ -1,4 +1,4 @@
-##Chapter 1 Challenge Problems
+Chapter 1 Challenge Problems
 
 1. There are at least six domain-specific languages used in the little system I cobbled together to write and publish this book. What are they?
 	
@@ -75,7 +75,7 @@ void insertNode(Node** head, int data, int position){
         newNode->next = temp->next;
         newNode->previous = temp;
 
-        //update the position's old node if not last in list
+        //update the old node if not last in list
         if (temp->next != NULL){
             temp->next->previous = newNode;
         }
