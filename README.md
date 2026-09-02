@@ -1,4 +1,4 @@
-Chapter 1 Challenge Problems
+# Chapter 1 Challenge Problems
 
 1. There are at least six domain-specific languages used in the little system I cobbled together to write and publish this book. What are they?
 	
@@ -152,3 +152,17 @@ int main(){
     insertNode(&head, 4, 3);
 }
 ```
+# Chapter 2 Challenge Problems
+1. In python, the scanner is handwritten in C (as shown in the screenshot). The parser on the other hand is made with pegen.
+   
+2. Just in Time Compilers are made so code can be run on any platforms regardless of configuration. However, since it does an extra layer of translation, it does require a little more overhead and startup time.
+
+3. This would probably make Lisp code more interchangeable amongst different lisp implementations.
+
+# Chapter 3 Challenge Problems
+1. 
+   
+2. Personally I find the syntax to be pretty simple and straightforward. This makes code pretty readable, granted complexity of code you can do with this code might not be too difficult. I think the only nitpicky thing I have is replacing nil for null. As of right now I don’t see how it makes a difference aside making it a little annoying to remember.
+
+3. Not having data structures such as arrays is a huge problem. Real programs often take advantage of data structures to store and access data easily. (error handling)
+
