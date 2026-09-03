@@ -160,9 +160,23 @@ int main(){
 3. This would probably make Lisp code more interchangeable amongst different lisp implementations.
 
 # Chapter 3 Challenge Problems
-1. 
-   
-2. Personally I find the syntax to be pretty simple and straightforward. This makes code pretty readable, granted complexity of code you can do with this code might not be too difficult. I think the only nitpicky thing I have is replacing nil for null. As of right now I don’t see how it makes a difference aside making it a little annoying to remember.
 
-3. Not having data structures such as arrays is a huge problem. Real programs often take advantage of data structures to store and access data easily. (error handling)
+1.
+```sh
+fun printSum(a,b) {
+	var sum = a + b;
+	prirnt "This is the sum: " + b;
+}
+
+for (var a=0; a<10; a=a+1){
+	var b = 1;
+	printSum(a,b);
+	b=b+1;
+}
+```
+This returns "Operands must be two numbers or two strings" meaning there is no way to print both strings and numbers in the same print line. While not a big issue, it means you cannot format print lines the way you'd like it to be. 
+
+2. Personally I find the syntax to be pretty simple and straightforward. This makes code pretty readable, granted complexity of code you can do with this code might not be too difficult. I think the another nitpicky thing I have with lox is how certain quality of life shortcuts that most popular languages have are not implemented. Something like incrementing through x++ is not a thing.  Lastly, some minor changes in syntax is a little strange. For example, print does not need paranthesis but ifs, fors, etc do. Obviously not a big issue as well but its something I realized I often caught myself doing wrong.
+
+3. Not having data structures such as arrays is a huge problem. Real programs often take advantage of data structures to store and access data easily. 
 
