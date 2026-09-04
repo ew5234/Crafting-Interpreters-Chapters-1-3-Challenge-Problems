@@ -1,19 +1,20 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
 //defining node
 typedef struct Node{
     int data;
-    struct Node *next;
-    struct Node *previous;
+    struct Node* next;
+    struct Node* previous;
 } Node;
 
 //node creation function
 Node* createNode(int data){
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = data;
-    newNode->next = data;
-    newNode->previous = data;
+    newNode->next = NULL;
+    newNode->previous = NULL;
     return newNode;
 }
 
@@ -38,13 +39,13 @@ void insertNode(Node** head, int data, int position){
 
     //find the node before the position indicated
     Node* temp = *head;
-    for (int i=1; temp != NULL && i < position - 1; i++){
+    for (int i=1; temp != NULL && i < position; i++){
         temp = temp->next;
     }
 
     //if temp == Null, out of bound
     if (temp == NULL){
-        printf("Position is greater than number of nodes.");
+        printf("Position %d is greater than number of nodes.\n", position);
         return;
     }
 
@@ -53,20 +54,19 @@ void insertNode(Node** head, int data, int position){
         newNode->next = temp->next;
         newNode->previous = temp;
 
-        //update the old node if not last in list
+        //update the position's old node if not last in list
         if (temp->next != NULL){
             temp->next->previous = newNode;
         }
 
         temp->next = newNode;
-        free(temp);
     }
 }
 
 void deleteNode(Node** head, int position){
     //if list is empty
     if((*head == NULL)){
-        printf("List is Empty.");
+        printf("List is Empty.\n");
         return;
     }
 
@@ -90,7 +90,7 @@ void deleteNode(Node** head, int position){
 
     //if temp==Null, out of bound
     if (temp == NULL){
-        printf("Position is greater than number of nodes.");
+        printf("Position %d is greater than number of nodes.\n", position);
         return;
     }
 
@@ -100,7 +100,6 @@ void deleteNode(Node** head, int position){
     if(temp->previous != NULL){
         temp->previous->next = temp->next;
     }
-    free(temp);
 }
 
 void findNode(Node** head, int data){
@@ -109,7 +108,7 @@ void findNode(Node** head, int data){
     //find the data indicated
     for (int i = 0; temp != NULL; i++){
         if (temp->data == data){
-            printf("%d at position %d", data, i);
+            printf("%d at position %d\n", data, i);
             return;
         }
         temp = temp->next;
@@ -117,9 +116,20 @@ void findNode(Node** head, int data){
 
     //if temp==Null, data not in list
     if (temp == NULL){
-        printf("Inputted Data is not in list");
+        printf("Inputted Data is not in list\n");
         return;
     }
+}
+
+void printList(Node* head)
+{
+    Node* temp = head;
+    printf("List: ");
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
 }
 
 int main(){
@@ -127,5 +137,12 @@ int main(){
     insertNode(&head, 1, 0);
     insertNode(&head, 2, 1);
     insertNode(&head, 3, 2);
-    insertNode(&head, 4, 3);
+    
+    printList(head);
+    
+    deleteNode(&head, 2);
+    
+    findNode(&head, 1);
+    findNode(&head, 2);
+    findNode(&head, 3);
 }
